@@ -141,3 +141,88 @@ canvas { display: block; image-rendering: pixelated; }
   .bench { grid-template-columns: 1fr; }
   .mast { flex-direction: column; align-items: flex-start; }
 }
+
+/* ===== 拼缝托盘工房 ===== */
+.mode-switch { display: flex; gap: 8px; }
+.mode-switch button {
+  background: #1a140f;
+  border: 1px solid var(--line);
+  padding: 8px 16px;
+  cursor: pointer;
+  letter-spacing: 0.12em;
+}
+.mode-switch button.current { border-color: var(--brass); color: var(--brass); }
+
+.seam-shop { margin-top: 8px; }
+.seam-head { display: flex; align-items: center; margin-bottom: 14px; }
+.seam-head .brand { display: flex; gap: 12px; align-items: center; }
+.seam-head .mark {
+  width: 48px; height: 48px; display: grid; place-items: center;
+  border: 1px solid var(--brass); color: var(--brass); font-size: 24px; background: #1a140f;
+}
+.seam-head h2 { margin: 0; font-size: 22px; font-weight: 500; letter-spacing: 0.12em; }
+.seam-head p { margin: 4px 0 0; opacity: 0.72; font-size: 13px; max-width: 640px; }
+.seam-bench {
+  display: grid;
+  grid-template-columns: 240px auto 280px;
+  gap: 16px;
+  align-items: start;
+  justify-content: center;
+}
+.seam-frame {
+  display: inline-block;
+  padding: 10px;
+  background: #0d0a08;
+  border: 1px solid var(--brass);
+  box-shadow: inset 0 0 0 4px #1c1610;
+}
+.seam-frame canvas { display: block; cursor: pointer; image-rendering: pixelated; }
+.pick { margin: 10px 0 0; font-size: 13px; opacity: 0.8; }
+.pick strong { color: var(--brass); }
+
+.seam-panel .hint { font-size: 12px; line-height: 1.5; opacity: 0.85; margin: 6px 0 10px; }
+.seam-panel .hint[data-tone="success"] { color: var(--moss); }
+.seam-panel .hint[data-tone="warn"] { color: #e8b898; }
+.dpad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.dpad button {
+  background: #1a140f; border: 1px solid var(--line); padding: 10px 0; cursor: pointer;
+}
+.dpad button:hover { border-color: var(--brass); }
+.dpad .up { grid-column: 2; }
+.dpad .left { grid-column: 1; grid-row: 2; }
+.dpad .right { grid-column: 3; grid-row: 2; }
+.dpad .down { grid-column: 2; grid-row: 3; }
+.actions { display: flex; flex-direction: column; gap: 6px; }
+.actions button {
+  background: #1a140f; border: 1px solid var(--line); padding: 8px 10px; cursor: pointer;
+}
+.actions button:hover:not(:disabled) { border-color: var(--brass); }
+.actions button:disabled { opacity: 0.45; cursor: default; }
+.meta { font-size: 12px; opacity: 0.7; margin: 8px 0; }
+.reject { font-size: 12px; color: #e8b898; border: 1px solid rgba(181,106,50,0.5); padding: 8px; }
+.seam-panel h3 { margin: 14px 0 6px; font-size: 12px; letter-spacing: 0.14em; color: #a89070; }
+.seams li, .checks li {
+  display: flex; align-items: center; gap: 8px; justify-content: space-between;
+  font-size: 12px; margin-bottom: 6px;
+}
+.seams button { background: #1a140f; border: 1px solid var(--line); padding: 3px 8px; cursor: pointer; font-size: 11px; }
+.seams .empty { opacity: 0.5; justify-content: flex-start; }
+.checks { list-style: none; padding: 0; }
+.checks li { justify-content: flex-start; line-height: 1.4; }
+.checks li.pass strong { color: var(--moss); }
+.checks li.fail strong { color: var(--rust); }
+.verdict {
+  text-align: center; padding: 8px; margin: 8px 0 0;
+  border: 1px solid var(--line); letter-spacing: 0.2em; font-size: 13px;
+}
+.verdict[data-ok="true"] { border-color: var(--moss); color: var(--moss); }
+.verdict[data-ok="false"] { border-color: var(--rust); color: #e8b898; }
+
+@media (max-width: 1200px) {
+  .seam-bench { grid-template-columns: 1fr; }
+}
